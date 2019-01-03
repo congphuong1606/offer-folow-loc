@@ -83,13 +83,13 @@ async function getData() {
                         let data = result[0].list;
                         try {
                             data.forEach(item => {
-                                console.log(item);
+                               // console.log(item);
                                 let timeCurrent = (new Date()).getTime();
                                 /*   timeCurrent = timeCurrent.split('GMT+0700')[0] + 'GMT+0700';
                                    timeCurrent = (new Date(timeCurrent)).getTime();*/
                                 let time = item.time;
-                                console.log(' console.log(dataLead);');
-                                console.log(timeCurrent);
+                               // console.log(' console.log(dataLead);');
+                               // console.log(timeCurrent);
 
                                 if (isExistDataLead(item, time)) {
                                 } else {
@@ -111,12 +111,9 @@ async function getData() {
                             isSuccess = true;
                             console.log('ko co data');
                         }
-
-
-
-                        console.log('data');
+                       /* console.log('data');
                         console.log(data);
-                        console.log('dataLead');
+                        console.log('dataLead');*/
                         console.log(dataLead);
                         setRingRing();
                     } else {
