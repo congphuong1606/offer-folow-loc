@@ -70,8 +70,8 @@ async function getData() {
                     "                 if(pageCount<=0){pageCount =1;}\n" +
                     "                 for(var i=listTr.length-1; i>=0;i--){\n" +
                     "                 if(listTr[i].children[2].innerText=='loc'){\n" +
-                    "                     var date = (new Date(listTr[i].children[1].innerText))+'';\n" +
-                    "                    date=date.split('GMT+0700')[0] +'GMT+0700'\n" +
+                    "                     var date = (new Date(listTr[i].children[1].innerText)).getTime();\n" +
+
                     "                     var name  = listTr[i].children[6].innerText+'-'+listTr[i].children[3].innerText.split(' ').join('-').slice(0, 30).trim();    \n" +
                     "                      var object = { name:name,time:date};\n" +
                     "                       list.push(object);\n" +
@@ -84,10 +84,10 @@ async function getData() {
                         if (data.size > 0) {
                             data.forEach(item => {
                                 console.log(item);
-                                let timeCurrent = (new Date()) + '';
-                                timeCurrent = timeCurrent.split('GMT+0700')[0] + 'GMT+0700';
-                                timeCurrent = (new Date(timeCurrent)).getTime();
-                                let time = (new Date(item.time)).getTime();
+                                let timeCurrent = (new Date()).getTime();
+                             /*   timeCurrent = timeCurrent.split('GMT+0700')[0] + 'GMT+0700';
+                                timeCurrent = (new Date(timeCurrent)).getTime();*/
+                                let time = item.time;
                                 console.log(' console.log(dataLead);');
                                 console.log(timeCurrent);
 
