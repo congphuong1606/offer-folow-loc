@@ -59,7 +59,7 @@ function setRingRing() {
 }
 
 async function getData() {
-    await sleep(1000);
+    await sleep(3000);
     chrome.tabs.query({}, function (tabs) {
         if (isExistTab(tabs)) {
             try {
@@ -132,7 +132,7 @@ async function getData() {
 
 
 async function clickUserLoc() {
-    await sleep(5000);
+    await sleep(4000);
     chrome.tabs.query({}, function (tabs) {
         if (isExistTab(tabs)) {
             try {
