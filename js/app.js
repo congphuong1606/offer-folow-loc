@@ -2,7 +2,7 @@
 let dataLead = [];
 let myAudio = new Audio();
 myAudio.src = "img/iphonex.mp3";
-
+let timeCount=180;
 chrome.runtime.onMessage.addListener(function (request, sender) {
     if (request.action === 'setRingOff') {
         try {
@@ -96,14 +96,14 @@ async function getData() {
                                 if (isExistDataLead(item, time)) {
                                 } else {
 
-
+console.log('AAAAAAAAAAAAAAAAAAAAAAa')
                                     let dur = timeCurrent - time;
                                     let dataItem = {
                                         name: item.name,
                                         time: time,
                                         ring: 'on',
                                     };
-                                    if (dur <= (120 * 1000 * 60)) {
+                                    if (dur <= (timeCount * 1000 * 60)) {
                                         dataLead.push(dataItem);
                                     }
 
@@ -116,7 +116,7 @@ async function getData() {
                        /* console.log('data');
                         console.log(data);
                         console.log('dataLead');*/
-                        console.log(dataLead);
+                        //console.log(dataLead);
                         setRingRing();
                     } else {
                         isSuccess = true;
@@ -237,7 +237,7 @@ function removeOld() {
         let number = parseInt((dur / 1000) / 60);
         item.timeStamp = number;
         /*  console.log(dur);*/
-        if (dur > (60 * 1000 * 60)) {
+        if (dur > (timeCount * 1000 * 60)) {
             let index = dataLead.indexOf(item);
             if (index !== -1) dataLead.splice(index, 1);
         }
