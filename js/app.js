@@ -20,7 +20,7 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
 });
 
 
-function isExistDataLead(item,time) {
+function isExistDataLead(item, time) {
     let isCheck = false;
     try {
         dataLead.forEach(itemd => {
@@ -52,14 +52,14 @@ function setRingRing() {
         myAudio.play();
         window.open("popup.html", "extension_popup", "width=770,height=850,status=no,scrollbars=yes,resizable=no");
     }
-
+    isSuccess = true;
     chrome.runtime.sendMessage({
         action: "setHtml",
     });
 }
 
 async function getData() {
-    await sleep(5000);
+    await sleep(1000);
     chrome.tabs.query({}, function (tabs) {
         if (isExistTab(tabs)) {
             try {
@@ -81,49 +81,70 @@ async function getData() {
                 }, function (result) {
                     if (result !== undefined && result[0] !== null) {
                         let data = result;
-                            if(data.size>0){
-                                data.forEach(item => {
-                                    let timeCurrent = (new Date())+'';
-                                    timeCurrent=timeCurrent.split('GMT+0700')[0] +'GMT+0700';
-                                    timeCurrent=(new Date(timeCurrent)).getTime();
-                                    let time = (new Date(item.time)).getTime();
-                                    console.log(' console.log(dataLead);');
-                                    console.log(timeCurrent);
+                        if (data.size > 0) {
+                            data.forEach(item => {
+                                let timeCurrent = (new Date()) + '';
+                                timeCurrent = timeCurrent.split('GMT+0700')[0] + 'GMT+0700';
+                                timeCurrent = (new Date(timeCurrent)).getTime();
+                                let time = (new Date(item.time)).getTime();
+                                console.log(' console.log(dataLead);');
+                                console.log(timeCurrent);
 
-                                    if (isExistDataLead(item,time)) {
-                                    } else {
+                                if (isExistDataLead(item, time)) {
+                                } else {
 
 
-                                        let dur = timeCurrent - time;
-                                        let dataItem = {
-                                            name: item.name,
-                                            time: time,
-                                            ring: 'on',
-                                        };
-                                        if (dur <= (40 * 1000 * 60)) {
-                                            dataLead.push(dataItem);
-                                        }
-
+                                    let dur = timeCurrent - time;
+                                    let dataItem = {
+                                        name: item.name,
+                                        time: time,
+                                        ring: 'on',
+                                    };
+                                    if (dur <= (40 * 1000 * 60)) {
+                                        dataLead.push(dataItem);
                                     }
-                                });
-                            }
 
-
+                                }
+                            });
+                        }
                         console.log(result);
                         console.log(dataLead);
                         console.log('data');
                         setRingRing();
                     } else {
-                        getDataSuccess = true;
+                        isSuccess = true;
+                        console.log('ko co data');
                     }
                 });
             } catch (e) {
-
+                isSuccess = true;
+                console.log('catch getdata');
             }
         }
     });
+
 }
 
+
+
+async function clickUserLoc() {
+    await sleep(5000);
+    chrome.tabs.query({}, function (tabs) {
+        if (isExistTab(tabs)) {
+            try {
+                chrome.tabs.executeScript(idTabEndilo, {
+                    "code": "var el = document.getElementsByName('user_id')[0];var ev = new Event('input', { bubbles: true,simulated :true});el.value =4;el.defaultValue  =4;el.dispatchEvent(ev);document.getElementsByClassName('icon-refresh')[0].click();"
+                }, function (result) {
+                    getData();
+                });
+            } catch (e) {
+                isSuccess = true;
+                console.log('catch clickUserLoc');
+            }
+        }
+    });
+
+}
 
 function isExistTab(tabs) {
     let result = false;
@@ -139,6 +160,7 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+
 function creatNewTab(comManagerConversionIndex) {
     chrome.tabs.create({
         url: comManagerConversionIndex,
@@ -147,7 +169,7 @@ function creatNewTab(comManagerConversionIndex) {
         tab.highlighted = true;
         tab.pinned = true;
         idTabEndilo = tab.id;
-        getData();
+        clickUserLoc();
         console.log(idTabEndilo);
     });
 
@@ -162,7 +184,7 @@ function updateTab() {
             let listener = function (tabId, changeInfo, tab) {
                 if (tabId === idTabEndilo && changeInfo.status === 'complete') {
                     chrome.tabs.onUpdated.removeListener(listener);
-                    getData();
+                    clickUserLoc();
                 }
             };
             chrome.tabs.onUpdated.addListener(listener);
@@ -218,9 +240,13 @@ function removeOld() {
 
 }
 
+let isSuccess = true;
 setInterval(function () {
     // removeOld();
-    openTabEndilo();
-}, 7000);
+    if (isSuccess) {
+        isSuccess = false;
+        openTabEndilo();
+    }
+}, 2000);
 
 
