@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c9f43e7-9131-4717-85dd-4a6963acd1f3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -183,8 +182,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
-              <caret line="88" column="67" selection-start-line="88" selection-start-column="67" selection-end-line="88" selection-end-column="67" />
+            <state relative-caret-position="255">
+              <caret line="111" column="51" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -445,15 +444,16 @@
       <workItem from="1545108844819" duration="23000" />
       <workItem from="1545136809487" duration="71000" />
       <workItem from="1546519623212" duration="867000" />
-      <workItem from="1546520515379" duration="11408000" />
+      <workItem from="1546520515379" duration="11550000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="336862000" />
+    <option name="totallyTimeSpent" value="337004000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.12596402" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -762,8 +762,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="88" column="67" selection-start-line="88" selection-start-column="67" selection-end-line="88" selection-end-column="67" />
+        <state relative-caret-position="255">
+          <caret line="111" column="51" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="51" />
         </state>
       </provider>
     </entry>

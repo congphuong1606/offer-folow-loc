@@ -81,12 +81,12 @@ async function getData() {
                 }, function (result) {
                     if (result !== undefined && result[0] !== null) {
                         let data = result[0].list;
-                        if (data.size > 0) {
+                        try {
                             data.forEach(item => {
                                 console.log(item);
                                 let timeCurrent = (new Date()).getTime();
-                             /*   timeCurrent = timeCurrent.split('GMT+0700')[0] + 'GMT+0700';
-                                timeCurrent = (new Date(timeCurrent)).getTime();*/
+                                /*   timeCurrent = timeCurrent.split('GMT+0700')[0] + 'GMT+0700';
+                                   timeCurrent = (new Date(timeCurrent)).getTime();*/
                                 let time = item.time;
                                 console.log(' console.log(dataLead);');
                                 console.log(timeCurrent);
@@ -107,7 +107,11 @@ async function getData() {
 
                                 }
                             });
+                        }catch (e) {
+                            isSuccess = true;
+                            console.log('ko co data');
                         }
+
 
 
                         console.log('data');
