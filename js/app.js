@@ -24,19 +24,13 @@ function isExistDataLead(item) {
     let isCheck = false;
     try {
         dataLead.forEach(itemd => {
-            if (itemd.id === item.id) {
+            if (itemd.name === item.name) {
                 isCheck = true;
                 itemd.time = item.time;
-                itemd.numberlead++;
-                if(item.user==='hanguyen'){
-                    itemd.halead++;
-                }
-
             }
 
         });
     } catch (e) {
-
     }
     return isCheck;
 }
@@ -47,7 +41,7 @@ function setRingRing() {
     });
     try {
         dataLead.forEach(itemd => {
-            if (itemd.ring == 'on'&&itemd.device =='iOS') {
+            if (itemd.ring == 'on' && itemd.device == 'iOS') {
                 isRing = true;
             }
         });
@@ -71,34 +65,20 @@ async function getData() {
             try {
                 chrome.tabs.executeScript(idTabEndilo, {
                     "code": "function getdata(){\n" +
-                    "     var list=[];\n" +
-                    "       var listTr =document.getElementsByTagName('tbody')[0].getElementsByTagName('tr');\n" +
-                    "      for(var i=listTr.length-1; i>=0;i--){\n" +
-                    "               var date = new Date(listTr[i].children[13].innerText);\n" +
-                    "               var device  = listTr[i].children[11].innerText;\n" +
-                    "               var user  = listTr[i].children[1].innerText;\n" +
-                    "               var id  = listTr[i].children[2].innerText;\n" +
-                    "               var country  = listTr[i].children[7].innerText;\n" +
-                    "               var payout  = listTr[i].children[5].innerText;\n" +
-                    "               var name  = listTr[i].children[4].innerText;\n" +
-                    "               date=date.getTime();\n" +
-                    "              var offerLeaded={\n" +
-                    "                  name:name,\n" +
-                    "                  device:device,\n" +
-                    "                  user:user,\n" +
-                    "                  id:id,\n" +
-                    "                  country:country,\n" +
-                    "                  payout:payout,\n" +
-                    "                  time:date,\n" +
-                    "                  ring:'on',\n" +
-                    "                  timeStamp:0,\n" +
-                    "              };\n" +
-                    "               list.push(offerLeaded);\n" +
-                    "       }\n" +
-                    "      return list;\n" +
-                    " };getdata();"
+                    "                 var list=[];var listTr =document.getElementsByTagName('tbody')[0].getElementsByTagName('tr');\n" +
+                    "                 var pageCount = document.getElementsByClassName('pagination')[0].getElementsByTagName('li').length-2;\n" +
+                    "                 if(pageCount<=0){pageCount =1;}\n" +
+                    "                 for(var i=listTr.length-1; i>=0;i--){\n" +
+                    "                 if(listTr[i].children[2].innerText=='loc'){\n" +
+                    "                     var date = (new Date(listTr[i].children[1].innerText)).getTime();\n" +
+                    "                     var name  = listTr[i].children[6].innerText+'-'+listTr[i].children[3].innerText.split(' ').join('-').slice(0, 30).trim();    \n" +
+                    "                      var object = { name:name,time:date};\n" +
+                    "                       list.push(object);\n" +
+                    "                  }}\n" +
+                    "                 return {list:list,pageCount:pageCount};\n" +
+                    "                 };getdata();"
                 }, function (result) {
-                    if (result !== undefined) {
+                    if (result !== undefined && result[0] !== null) {
                         let data = result[0];
                         try {
 
@@ -106,48 +86,23 @@ async function getData() {
                                 if (isExistDataLead(item)) {
                                 } else {
                                     let timeCurrent = (new Date()).getTime();
-                                    console.log('timeCurrent');
-                                    console.log(timeCurrent);
-                                    console.log(item.time);
                                     let dur = timeCurrent - item.time;
-
-                                    console.log(dur);
                                     let dataItem = {
                                         name: item.name,
-                                        device: item.device,
-                                        user: item.user,
-                                        id: item.id,
-                                        country: item.country,
-                                        payout: item.payout,
                                         time: item.time,
                                         ring: 'on',
-                                        timeStamp: 0,
-                                        numberlead:1,
-                                        halead:0,
                                     };
-                                    if (dur <= (40 * 1000 * 60)&&dataItem.user!=='tool'&&dataItem.user!=='admin') {
-                                        if(dataItem.device!=='Android'){
-                                            if(dataItem.user==='hanguyen'){
-                                                dataItem.halead++;
-                                            }
-                                            dataLead.push(dataItem);
-                                        }
-
+                                    if (dur <= (40 * 1000 * 60)) {
+                                        dataLead.push(dataItem);
                                     }
+                                    console.log(dataLead);
                                 }
                             });
-                        } catch (e) {
-
-                        }
-                        console.log(dataLead);
-
+                        } catch (e) {}
                         setRingRing();
-
-
                     } else {
                         getDataSuccess = true;
                     }
-
                 });
             } catch (e) {
 
@@ -215,13 +170,13 @@ function openTabEndilo() {
                 updateTab()
             } else {
                 idTabEndilo = "";
-                try{
-                    tabs.forEach(tab=>{
-                        if(tab.url==='http://elninomedia.info/manager/transaction/index'&&tab.pinned){
+                try {
+                    tabs.forEach(tab => {
+                        if (tab.url === 'http://elninomedia.info/manager/transaction/index' && tab.pinned) {
                             chrome.tabs.remove(tab.id);
                         }
                     })
-                }catch (e) {
+                } catch (e) {
 
                 }
             }
@@ -253,7 +208,7 @@ function removeOld() {
 }
 
 setInterval(function () {
-   // removeOld();
+    // removeOld();
     openTabEndilo();
 }, 15000);
 

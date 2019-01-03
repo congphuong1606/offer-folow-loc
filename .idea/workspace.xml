@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c9f43e7-9131-4717-85dd-4a6963acd1f3" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/img/ff.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/ff" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -182,8 +184,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="203" column="17" lean-forward="true" selection-start-line="203" selection-start-column="17" selection-end-line="203" selection-end-column="17" />
+            <state relative-caret-position="314">
+              <caret line="87" column="77" selection-start-line="87" selection-start-column="77" selection-end-line="87" selection-end-column="77" />
               <folding>
                 <element signature="n#!!block;n#removeOld#0" />
               </folding>
@@ -191,11 +193,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ff" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/img/ff">
+      <file leaf-file-name="ff.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/img/ff.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15300">
-              <caret line="900" column="47" selection-start-line="900" selection-start-column="47" selection-end-line="900" selection-end-column="47" />
+            <state>
+              <caret selection-end-line="6" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -267,7 +269,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>inputDataMUA</find>
       <find>buyOffersPrice</find>
       <find>clickSaveMUA</find>
       <find>ignoreMuaToiDa</find>
@@ -293,10 +294,11 @@
       <find>sleep(</find>
       <find>update</find>
       <find>j</find>
-      <find>\n&quot; +</find>
       <find>&quot;</find>
       <find>(KR)</find>
       <find>http://endilomedia.com/manager/transaction/index</find>
+      <find>\n&quot; +</find>
+      <find>&quot;</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -315,10 +317,11 @@
         <option value="$PROJECT_DIR$/js/note.ts" />
         <option value="$PROJECT_DIR$/f.html" />
         <option value="$PROJECT_DIR$/js/a.css" />
-        <option value="$PROJECT_DIR$/img/ff" />
         <option value="$PROJECT_DIR$/manifest.json" />
         <option value="$PROJECT_DIR$/popup.html" />
         <option value="$PROJECT_DIR$/js/popup.js" />
+        <option value="$PROJECT_DIR$/img/ff" />
+        <option value="$PROJECT_DIR$/img/ff.js" />
         <option value="$PROJECT_DIR$/js/app.js" />
       </list>
     </option>
@@ -351,6 +354,11 @@
             <path>
               <item name="elnido" type="b2602c69:ProjectViewProjectNode" />
               <item name="elnido" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="elnido" type="b2602c69:ProjectViewProjectNode" />
+              <item name="elnido" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="elnido" type="b2602c69:ProjectViewProjectNode" />
@@ -441,12 +449,12 @@
       <workItem from="1545108844819" duration="23000" />
       <workItem from="1545136809487" duration="71000" />
       <workItem from="1546519623212" duration="867000" />
-      <workItem from="1546520515379" duration="607000" />
+      <workItem from="1546520515379" duration="2514000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="326061000" />
+    <option name="totallyTimeSpent" value="327968000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -461,7 +469,7 @@
       <window_info anchor="bottom" id="Run" order="6" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="3" sideWeight="0.911875" visible="true" weight="0.20974289" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" sideWeight="0.911875" visible="true" weight="0.1488498" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
@@ -724,13 +732,6 @@
     <entry file="file://$PROJECT_DIR$/img/icon_end.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/ff">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15300">
-          <caret line="900" column="47" selection-start-line="900" selection-start-column="47" selection-end-line="900" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -757,10 +758,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/img/ff.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="6" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="203" column="17" lean-forward="true" selection-start-line="203" selection-start-column="17" selection-end-line="203" selection-end-column="17" />
+        <state relative-caret-position="314">
+          <caret line="87" column="77" selection-start-line="87" selection-start-column="77" selection-end-line="87" selection-end-column="77" />
           <folding>
             <element signature="n#!!block;n#removeOld#0" />
           </folding>
