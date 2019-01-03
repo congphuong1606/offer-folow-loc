@@ -80,9 +80,10 @@ async function getData() {
                     "                 };getdata();"
                 }, function (result) {
                     if (result !== undefined && result[0] !== null) {
-                        let data = result;
+                        let data = result[0].list;
                         if (data.size > 0) {
                             data.forEach(item => {
+                                console.log(item);
                                 let timeCurrent = (new Date()) + '';
                                 timeCurrent = timeCurrent.split('GMT+0700')[0] + 'GMT+0700';
                                 timeCurrent = (new Date(timeCurrent)).getTime();
@@ -107,9 +108,10 @@ async function getData() {
                                 }
                             });
                         }
-                        console.log(result);
-                        console.log(dataLead);
+
+
                         console.log('data');
+                        console.log(dataLead);
                         setRingRing();
                     } else {
                         isSuccess = true;
@@ -247,6 +249,6 @@ setInterval(function () {
         isSuccess = false;
         openTabEndilo();
     }
-}, 2000);
+}, 5000);
 
 
