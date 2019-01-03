@@ -95,10 +95,14 @@ async function getData() {
                                     if (dur <= (40 * 1000 * 60)) {
                                         dataLead.push(dataItem);
                                     }
-                                    console.log(dataLead);
+
                                 }
                             });
                         } catch (e) {}
+                        console.log(' console.log(dataLead);');
+                        console.log(dataLead);
+                        console.log('data');
+                        console.log(data);
                         setRingRing();
                     } else {
                         getDataSuccess = true;
@@ -119,8 +123,6 @@ function isExistTab(tabs) {
             result = true;
         }
     });
-
-    console.log(result)
     return result;
 }
 
