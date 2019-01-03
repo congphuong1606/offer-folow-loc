@@ -32,6 +32,8 @@ function isExistDataLead(item, time) {
         });
     } catch (e) {
     }
+    console.log('isCheck')
+    console.log(isCheck)
     return isCheck;
 }
 
