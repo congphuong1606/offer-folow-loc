@@ -182,8 +182,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="111" column="51" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="51" />
+            <state relative-caret-position="-119">
+              <caret line="91" column="33" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -330,7 +330,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="506" />
     <option name="y" value="34" />
     <option name="width" value="1099" />
@@ -444,16 +444,15 @@
       <workItem from="1545108844819" duration="23000" />
       <workItem from="1545136809487" duration="71000" />
       <workItem from="1546519623212" duration="867000" />
-      <workItem from="1546520515379" duration="11550000" />
+      <workItem from="1546520515379" duration="11851000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="337004000" />
+    <option name="totallyTimeSpent" value="337305000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.12596402" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -762,8 +761,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="111" column="51" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="51" />
+        <state relative-caret-position="-119">
+          <caret line="91" column="33" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
         </state>
       </provider>
     </entry>
