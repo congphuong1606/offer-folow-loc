@@ -80,7 +80,7 @@ async function getData() {
                     "                 };getdata();"
                 }, function (result) {
                     if (result !== undefined && result[0] !== null) {
-                        let data = result[0];
+                        let data = result;
                             if(data.size>0){
                                 data.forEach(item => {
                                     let timeCurrent = (new Date())+'';
