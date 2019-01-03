@@ -1,7 +1,7 @@
 ﻿let idTabEndilo = "";
 let dataLead = [];
 let myAudio = new Audio();
-myAudio.src = "img/sitequang.mp3";
+myAudio.src = "img/iphonex.mp3";
 
 chrome.runtime.onMessage.addListener(function (request, sender) {
     if (request.action === 'setRingOff') {
@@ -41,7 +41,7 @@ function setRingRing() {
     });
     try {
         dataLead.forEach(itemd => {
-            if (itemd.ring == 'on' && itemd.device == 'iOS') {
+            if (itemd.ring == 'on') {
                 isRing = true;
             }
         });
@@ -101,7 +101,7 @@ async function getData() {
                                         time: time,
                                         ring: 'on',
                                     };
-                                    if (dur <= (40 * 1000 * 60)) {
+                                    if (dur <= (60 * 1000 * 60)) {
                                         dataLead.push(dataItem);
                                     }
 
@@ -247,7 +247,7 @@ function removeOld() {
 
 let isSuccess = true;
 setInterval(function () {
-    // removeOld();
+     removeOld();
     if (isSuccess) {
         isSuccess = false;
         openTabEndilo();

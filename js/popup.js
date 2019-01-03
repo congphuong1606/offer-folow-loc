@@ -45,16 +45,18 @@ function onWindowLoad() {
                 }
                 dataLead.reverse();
                 dataLead.forEach(item => {
+                    let id='.';
+                    let timeStamp='.';
                     if (item.ring == 'on') {
-                        document.getElementById('listOffers').innerHTML += '     <hr><div class="offer"><div class="idOffers"><h2 id="'+item.id+'">'+ item.id +'</h2></div><div class="name"><h2>'
-                            +item.country+'-'  + item.name.slice(0, 30)  +
-                            '</h2></div><div class="timeStamp"><h5>'  + item.timeStamp  +
-                            ' phút trước </h5></div> <div class="status"> <h4 style="color: blue">Mới</h4></div> </div>';
+                        document.getElementById('listOffers').innerHTML += '     <hr><div class="offer"><div class="idOffers"><h2 id="'+id+'">'+ id +'</h2></div><div class="name"><h2>'
+                          +item.name.slice(0, 33)  +
+                            '</h2></div><div class="timeStamp"><h5>'  + timeStamp  +
+                            '... </h5></div> <div class="status"> <h4 style="color: blue">Mới</h4></div> </div>';
                     } else {
-                        document.getElementById('listOffers').innerHTML += '     <hr><div class="offer"><div class="idOffers"><h2 id="'+item.id+'">'+ item.id +'</h2></div><div class="name"><h2>'
-                            +item.country+'-'  + item.name.slice(0,30)  +
-                            '</h2></div><div class="timeStamp"><h5>'  + item.timeStamp  +
-                            ' phút trước </h5></div> <div class="status"> <h4 style="color: #cccccc">Đã xem</h4></div> </div>';
+                        document.getElementById('listOffers').innerHTML += '     <hr><div class="offer"><div class="idOffers"><h2 id="'+id+'">'+ id +'</h2></div><div class="name"><h2>'
+                           + item.name.slice(0,33)  +
+                            '</h2></div><div class="timeStamp"><h5>'  + timeStamp  +
+                            '... </h5></div> <div class="status"> <h4 style="color: #cccccc">Đã xem</h4></div> </div>';
                     }
 
                 });
