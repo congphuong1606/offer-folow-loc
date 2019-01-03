@@ -103,7 +103,7 @@ async function getData() {
                                         time: time,
                                         ring: 'on',
                                     };
-                                    if (dur <= (80 * 1000 * 60)) {
+                                    if (dur <= (120 * 1000 * 60)) {
                                         dataLead.push(dataItem);
                                     }
 
