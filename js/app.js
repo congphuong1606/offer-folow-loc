@@ -84,12 +84,17 @@ async function getData() {
                         try {
 
                             data.forEach(item => {
+                                let timeCurrent = (new Date())+'';
+                                timeCurrent=timeCurrent.split('GMT+0700')[0] +'GMT+0700';
+                                timeCurrent=(new Date(timeCurrent)).getTime();
                                 let time = (new Date(item.time)).getTime();
+                                console.log(' console.log(dataLead);');
+                                console.log(timeCurrent);
+
                                 if (isExistDataLead(item,time)) {
                                 } else {
-                                    let timeCurrent = (new Date())+'';
-                                    timeCurrent=timeCurrent.split('GMT+0700')[0] +'GMT+0700';
-                                    timeCurrent=(new Date(timeCurrent)).getTime();
+
+
                                     let dur = timeCurrent - time;
                                     let dataItem = {
                                         name: item.name,
@@ -99,8 +104,6 @@ async function getData() {
                                     if (dur <= (40 * 1000 * 60)) {
                                         dataLead.push(dataItem);
                                     }
-                                    console.log(' console.log(dataLead);');
-                                    console.log(timeCurrent);
 
 
 
@@ -219,6 +222,6 @@ function removeOld() {
 setInterval(function () {
     // removeOld();
     openTabEndilo();
-}, 15000);
+}, 7000);
 
 
