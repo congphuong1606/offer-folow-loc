@@ -70,7 +70,7 @@ async function getData() {
                     "                 if(pageCount<=0){pageCount =1;}\n" +
                     "                 for(var i=listTr.length-1; i>=0;i--){\n" +
                     "                 if(listTr[i].children[2].innerText=='loc'){\n" +
-                    "                     var date = (new Date(listTr[i].children[1].innerText)).getTime();\n" +
+                    "                     var date = (new Date(listTr[i].children[1].innerText));\n" +
                     "                     var name  = listTr[i].children[6].innerText+'-'+listTr[i].children[3].innerText.split(' ').join('-').slice(0, 30).trim();    \n" +
                     "                      var object = { name:name,time:date};\n" +
                     "                       list.push(object);\n" +
@@ -86,6 +86,7 @@ async function getData() {
                                 if (isExistDataLead(item)) {
                                 } else {
                                     let timeCurrent = (new Date()).getTime();
+
                                     let dur = timeCurrent - item.time;
                                     let dataItem = {
                                         name: item.name,
@@ -100,6 +101,7 @@ async function getData() {
                             });
                         } catch (e) {}
                         console.log(' console.log(dataLead);');
+                        console.log(new Date());
                         console.log(dataLead);
                         console.log('data');
                         console.log(data);
