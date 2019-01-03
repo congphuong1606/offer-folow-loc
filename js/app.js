@@ -87,7 +87,7 @@ async function getData() {
                                 let time = (new Date(item.time)).getTime();
                                 if (isExistDataLead(item,time)) {
                                 } else {
-                                    let timeCurrent = (new Date()).getTime();
+                                    let timeCurrent = (new Date())+'';
                                     timeCurrent=timeCurrent.split('GMT+0700')[0] +'GMT+0700';
                                     timeCurrent=(new Date(timeCurrent)).getTime();
                                     let dur = timeCurrent - time;
