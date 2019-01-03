@@ -80,7 +80,7 @@ async function getData() {
                     "                 };getdata();"
                 }, function (result) {
                     if (result !== undefined && result[0] !== null) {
-                        let data = result[0].list;
+                        let data = result[0];
                         if (data.size > 0) {
                             data.forEach(item => {
                                 console.log(item);
