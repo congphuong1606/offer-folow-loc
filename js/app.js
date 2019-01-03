@@ -81,7 +81,6 @@ async function getData() {
                 }, function (result) {
                     if (result !== undefined && result[0] !== null) {
                         let data = result[0];
-                        try {
 
                             data.forEach(item => {
                                 let timeCurrent = (new Date())+'';
@@ -105,11 +104,9 @@ async function getData() {
                                         dataLead.push(dataItem);
                                     }
 
-
-
                                 }
                             });
-                        } catch (e) {}
+
                         console.log(data);
                         console.log(dataLead);
                         console.log('data');
