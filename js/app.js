@@ -107,6 +107,7 @@ async function getData() {
                                 }
                             });
                         } catch (e) {}
+                        console.log(data);
                         console.log(dataLead);
                         console.log('data');
                         setRingRing();
