@@ -20,13 +20,13 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
 });
 
 
-function isExistDataLead(item) {
+function isExistDataLead(item,time) {
     let isCheck = false;
     try {
         dataLead.forEach(itemd => {
             if (itemd.name === item.name) {
                 isCheck = true;
-                itemd.time = item.time;
+                itemd.time = time;
             }
 
         });
@@ -70,7 +70,8 @@ async function getData() {
                     "                 if(pageCount<=0){pageCount =1;}\n" +
                     "                 for(var i=listTr.length-1; i>=0;i--){\n" +
                     "                 if(listTr[i].children[2].innerText=='loc'){\n" +
-                    "                     var date = (new Date(listTr[i].children[1].innerText));\n" +
+                    "                     var date = (new Date(listTr[i].children[1].innerText))+'';\n" +
+                    "                    date=date.split('GMT+0700')[0] +'GMT+0700'\n" +
                     "                     var name  = listTr[i].children[6].innerText+'-'+listTr[i].children[3].innerText.split(' ').join('-').slice(0, 30).trim();    \n" +
                     "                      var object = { name:name,time:date};\n" +
                     "                       list.push(object);\n" +
@@ -83,28 +84,31 @@ async function getData() {
                         try {
 
                             data.forEach(item => {
-                                if (isExistDataLead(item)) {
+                                let time = (new Date(item.time)).getTime();
+                                if (isExistDataLead(item,time)) {
                                 } else {
                                     let timeCurrent = (new Date()).getTime();
-
-                                    let dur = timeCurrent - item.time;
+                                    timeCurrent=timeCurrent.split('GMT+0700')[0] +'GMT+0700';
+                                    timeCurrent=(new Date(timeCurrent)).getTime();
+                                    let dur = timeCurrent - time;
                                     let dataItem = {
                                         name: item.name,
-                                        time: item.time,
+                                        time: time,
                                         ring: 'on',
                                     };
                                     if (dur <= (40 * 1000 * 60)) {
                                         dataLead.push(dataItem);
                                     }
+                                    console.log(' console.log(dataLead);');
+                                    console.log(timeCurrent);
+
+
 
                                 }
                             });
                         } catch (e) {}
-                        console.log(' console.log(dataLead);');
-                        console.log(new Date());
                         console.log(dataLead);
                         console.log('data');
-                        console.log(data);
                         setRingRing();
                     } else {
                         getDataSuccess = true;
