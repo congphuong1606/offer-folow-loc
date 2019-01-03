@@ -2,7 +2,7 @@
 let dataLead = [];
 let myAudio = new Audio();
 myAudio.src = "img/iphonex.mp3";
-let timeCount=180;
+let timeCount=15;
 chrome.runtime.onMessage.addListener(function (request, sender) {
     if (request.action === 'setRingOff') {
         try {
