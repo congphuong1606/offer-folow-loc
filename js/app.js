@@ -82,7 +82,7 @@ function setRingRing() {
     });
     try {
         dataLead.forEach(itemd => {
-            if (itemd.ring == 'on') {
+            if (itemd.ring === 'on') {
                 isRing = true;
             }
         });

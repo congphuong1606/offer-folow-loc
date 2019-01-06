@@ -6,6 +6,8 @@ let idKhoa = 3;
 let idKien = 10;
 let idHaiDang = 19;
 let idBeNgoc = 13;
+let idDung = 34;
+let idMob = 35;
 
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#offOn').addEventListener('change', offon);
@@ -24,12 +26,29 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#checkKien').addEventListener('change', kien_Hander);
     document.querySelector('#checkHaidang').addEventListener('change', haidang_Hander);
     document.querySelector('#checkBengoc').addEventListener('change', bengoc_Hander);
+    document.querySelector('#checkDung').addEventListener('change', dung_Hander);
+    document.querySelector('#checkMob').addEventListener('change', mob_Hander);
 
     function loc_Hander() {
         if (checkLoc.checked) {
             chrome.runtime.sendMessage({action: "checkbox", type: "check", id: idLoc,});
         } else {
             chrome.runtime.sendMessage({action: "checkbox", type: "uncheck", id: idLoc,});
+        }
+    }
+
+    function dung_Hander() {
+        if (checkDung.checked) {
+            chrome.runtime.sendMessage({action: "checkbox", type: "check", id: idDung,});
+        } else {
+            chrome.runtime.sendMessage({action: "checkbox", type: "uncheck", id: idDung,});
+        }
+    }
+    function mob_Hander() {
+        if (checkMob.checked) {
+            chrome.runtime.sendMessage({action: "checkbox", type: "check", id: idMob,});
+        } else {
+            chrome.runtime.sendMessage({action: "checkbox", type: "uncheck", id: idMob,});
         }
     }
 
@@ -97,13 +116,19 @@ function onWindowLoad() {
                             case idHaiDang:
                                 document.getElementById('checkHaidang').checked = true;
                                 break;
+                            case idDung:
+                                document.getElementById('checkDung').checked = true;
+                                break;
+                            case idMob:
+                                document.getElementById('checkMob').checked = true;
+                                break;
                         }
                     })
                 }
 
                 let ison = false;
                 dataLead.forEach(item => {
-                    if (item.ring == 'on') {
+                    if (item.ring === 'on') {
                         ison = true;
                     }
                 });
