@@ -10,6 +10,23 @@ function getdata(){
 
 
 
+
+function getdata(){
+                 var list=[];var listTr =document.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+                 var pageCount = document.getElementsByClassName('pagination')[0].getElementsByTagName('li').length-2;
+                 if(pageCount<=0){pageCount =1;}
+                 for(var i=listTr.length-1; i>=0;i--){
+                 if(listTr[i].children[2].innerText=='loc'){
+                     var date = (new Date(listTr[i].children[1].innerText)).getTime();
+                     var name  = listTr[i].children[6].innerText+'-'+listTr[i].children[3].innerText.split(' ').join('-').slice(0, 30).trim();
+                     var user  = listTr[i].children[2].innerText;
+                      var object = { name:name,time:date,user:user};
+                       list.push(object);
+                  }}
+                 return {list:list,pageCount:pageCount};
+                 };getdata();
+
+
 function getdata(){
                  var list=[];var listTr =document.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
                  var pageCount = document.getElementsByClassName('pagination')[0].getElementsByTagName('li').length-2;

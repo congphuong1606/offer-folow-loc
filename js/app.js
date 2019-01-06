@@ -1,8 +1,9 @@
 ﻿let idTabEndilo = "";
 let dataLead = [];
 let myAudio = new Audio();
-myAudio.src = "img/locdangclick.mp3";
-let timeCount=15;
+myAudio.src = "img/iphonex.mp3";
+let timeCount = 15;
+let listID = [];
 chrome.runtime.onMessage.addListener(function (request, sender) {
     if (request.action === 'setRingOff') {
         try {
@@ -17,6 +18,44 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
         }
         myAudio.pause();
     }
+
+    if (request.action === 'checkbox') {
+
+        if (request.type === 'check') {
+            if (listID.length > 0) {
+                let flag = true;
+                listID.forEach(userId => {
+                    if (userId === request.id) {
+                        flag = false;
+                    }
+                });
+                if (flag) {
+                    listID.push(request.id)
+                }
+
+            } else {
+                listID.push(request.id)
+            }
+
+        } else {
+            if (listID.length > 0) {
+                let tam = [];
+                listID.forEach(userId => {
+                    if (userId !== request.id) {
+                        tam.push(userId);
+                    }
+                });
+                listID = tam;
+
+            }
+        }
+        chrome.storage.sync.set({"listID": JSON.stringify(listID)}, function () {
+        });
+
+
+    }
+
+
 });
 
 
@@ -24,7 +63,7 @@ function isExistDataLead(item, time) {
     let isCheck = false;
     try {
         dataLead.forEach(itemd => {
-            if (itemd.name === item.name) {
+            if (itemd.name === item.name && itemd.user === item.user) {
                 isCheck = true;
                 itemd.time = time;
             }
@@ -60,7 +99,7 @@ function setRingRing() {
     });
 }
 
-async function getData() {
+async function getData(index) {
     await sleep(3000);
     chrome.tabs.query({}, function (tabs) {
         if (isExistTab(tabs)) {
@@ -71,35 +110,37 @@ async function getData() {
                     "                 var pageCount = document.getElementsByClassName('pagination')[0].getElementsByTagName('li').length-2;\n" +
                     "                 if(pageCount<=0){pageCount =1;}\n" +
                     "                 for(var i=listTr.length-1; i>=0;i--){\n" +
-                    "                 if(listTr[i].children[2].innerText=='loc'){\n" +
                     "                     var date = (new Date(listTr[i].children[1].innerText)).getTime();\n" +
-
                     "                     var name  = listTr[i].children[6].innerText+'-'+listTr[i].children[3].innerText.split(' ').join('-').slice(0, 30).trim();    \n" +
-                    "                      var object = { name:name,time:date};\n" +
+                    "                     var user  = listTr[i].children[2].innerText;    \n" +
+                    "                      var object = { name:name,time:date,user:user};\n" +
                     "                       list.push(object);\n" +
-                    "                  }}\n" +
+                    "                 }\n" +
                     "                 return {list:list,pageCount:pageCount};\n" +
                     "                 };getdata();"
                 }, function (result) {
                     if (result !== undefined && result[0] !== null) {
                         let data = result[0].list;
+                        console.log('result');
+                        console.log(result);
                         try {
                             data.forEach(item => {
-                               // console.log(item);
+                                // console.log(item);
                                 let timeCurrent = (new Date()).getTime();
                                 /*   timeCurrent = timeCurrent.split('GMT+0700')[0] + 'GMT+0700';
                                    timeCurrent = (new Date(timeCurrent)).getTime();*/
                                 let time = item.time;
-                               // console.log(' console.log(dataLead);');
-                               // console.log(timeCurrent);
+                                // console.log(' console.log(dataLead);');
+                                // console.log(timeCurrent);
 
                                 if (isExistDataLead(item, time)) {
                                 } else {
 
-console.log('AAAAAAAAAAAAAAAAAAAAAAa')
+                                    console.log('AAAAAAAAAAAAAAAAAAAAAAa')
                                     let dur = timeCurrent - time;
                                     let dataItem = {
                                         name: item.name,
+                                        user: item.user,
                                         time: time,
                                         ring: 'on',
                                     };
@@ -109,15 +150,17 @@ console.log('AAAAAAAAAAAAAAAAAAAAAAa')
 
                                 }
                             });
-                        }catch (e) {
+                        } catch (e) {
                             isSuccess = true;
                             console.log('ko co data');
                         }
-                       /* console.log('data');
-                        console.log(data);
-                        console.log('dataLead');*/
-                        //console.log(dataLead);
-                        setRingRing();
+                        if (index === (listID.length - 1)) {
+                            setRingRing();
+                        } else {
+                            index++;
+                            clickUser(index)
+                        }
+
                     } else {
                         isSuccess = true;
                         console.log('ko co data');
@@ -133,17 +176,22 @@ console.log('AAAAAAAAAAAAAAAAAAAAAAa')
 }
 
 
-
-async function clickUserLoc() {
+async function clickUser(index) {
     await sleep(4000);
     chrome.tabs.query({}, function (tabs) {
         if (isExistTab(tabs)) {
             try {
-                chrome.tabs.executeScript(idTabEndilo, {
-                    "code": "var el = document.getElementsByName('user_id')[0];var ev = new Event('input', { bubbles: true,simulated :true});el.value =4;el.defaultValue  =4;el.dispatchEvent(ev);document.getElementsByClassName('icon-refresh')[0].click();"
-                }, function (result) {
-                    getData();
-                });
+                if(listID[index]!=undefined){
+                    chrome.tabs.executeScript(idTabEndilo, {
+                        "code": "var el = document.getElementsByName('user_id')[0];var ev = new Event('input', { bubbles: true,simulated :true});el.value =" + listID[index] + ";el.defaultValue  =" + listID[index] + ";el.dispatchEvent(ev);document.getElementsByClassName('icon-refresh')[0].click();"
+                    }, function (result) {
+                        getData(index);
+                    });
+                }else {
+                    isSuccess = true;
+                    console.log('catch clickUserLoc');
+                }
+
             } catch (e) {
                 isSuccess = true;
                 console.log('catch clickUserLoc');
@@ -176,7 +224,11 @@ function creatNewTab(comManagerConversionIndex) {
         tab.highlighted = true;
         tab.pinned = true;
         idTabEndilo = tab.id;
-        clickUserLoc();
+        let index = 0;
+        if (listID.length > 0) {
+            clickUser(index);
+        }
+
         console.log(idTabEndilo);
     });
 
@@ -185,13 +237,17 @@ function creatNewTab(comManagerConversionIndex) {
 function updateTab() {
     try {
         chrome.tabs.update(idTabEndilo, {
-            url: 'http://endilomedia.com/manager/transaction/index',
+            url: 'http://elninomedia.info/manager/transaction/index',
             active: false
         }, function (tab1) {
             let listener = function (tabId, changeInfo, tab) {
                 if (tabId === idTabEndilo && changeInfo.status === 'complete') {
                     chrome.tabs.onUpdated.removeListener(listener);
-                    clickUserLoc();
+                    let index = 0;
+                    if (listID.length > 0) {
+                        clickUser(index);
+                    }
+
                 }
             };
             chrome.tabs.onUpdated.addListener(listener);
@@ -203,7 +259,7 @@ function updateTab() {
 
 function openTabEndilo() {
     if (idTabEndilo == "") {
-        creatNewTab('http://endilomedia.com/manager/transaction/index');
+        creatNewTab('http://elninomedia.info/manager/transaction/index');
     } else {
         chrome.tabs.query({}, function (tabs) {
             if (isExistTab(tabs)) {
@@ -212,7 +268,7 @@ function openTabEndilo() {
                 idTabEndilo = "";
                 try {
                     tabs.forEach(tab => {
-                        if (tab.url === 'http://endilomedia.com/manager/transaction/index' && tab.pinned) {
+                        if (tab.url === 'http://elninomedia.info/manager/transaction/index' && tab.pinned) {
                             chrome.tabs.remove(tab.id);
                         }
                     })
@@ -249,11 +305,11 @@ function removeOld() {
 
 let isSuccess = true;
 setInterval(function () {
-     removeOld();
-    if (isSuccess) {
+    removeOld();
+    if (isSuccess && listID.length > 0) {
         isSuccess = false;
         openTabEndilo();
     }
-}, 5000);
+}, 10000);
 
 
