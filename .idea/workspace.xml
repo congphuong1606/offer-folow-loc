@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c9f43e7-9131-4717-85dd-4a6963acd1f3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/popup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/popup.html" beforeDir="false" afterPath="$PROJECT_DIR$/popup.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -185,8 +183,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+            <state relative-caret-position="561">
+              <caret line="264" column="35" lean-forward="true" selection-start-line="264" selection-start-column="35" selection-end-line="264" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -218,7 +216,7 @@
       <file leaf-file-name="popup.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/popup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="51">
               <caret line="18" column="96" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="96" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -236,7 +234,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="popup.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="popup.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/popup.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
@@ -254,11 +252,11 @@
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file leaf-file-name="manifest.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="manifest.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/manifest.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="39" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+            <state relative-caret-position="170">
+              <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -307,13 +305,13 @@
       <find>(KR)</find>
       <find>getData(</find>
       <find>ring: 'on',</find>
-      <find>http://elninomedia.info/manager/transaction/index</find>
       <find>size</find>
       <find>size</find>
       <find>clickUserLoc()</find>
       <find>http://endilomedia.com/manager/transaction/index</find>
       <find>\n&quot; +</find>
       <find>&quot;</find>
+      <find>http://elninomedia.info/manager/transaction/index</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -334,10 +332,10 @@
         <option value="$PROJECT_DIR$/js/a.css" />
         <option value="$PROJECT_DIR$/img/ff" />
         <option value="$PROJECT_DIR$/img/ff.js" />
-        <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/js/popup.js" />
-        <option value="$PROJECT_DIR$/popup.html" />
         <option value="$PROJECT_DIR$/manifest.json" />
+        <option value="$PROJECT_DIR$/js/app.js" />
+        <option value="$PROJECT_DIR$/popup.html" />
       </list>
     </option>
   </component>
@@ -462,17 +460,18 @@
       <workItem from="1545136809487" duration="71000" />
       <workItem from="1546519623212" duration="867000" />
       <workItem from="1546520515379" duration="17857000" />
-      <workItem from="1546745571917" duration="11106000" />
+      <workItem from="1546745571917" duration="11443000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="354417000" />
+    <option name="totallyTimeSpent" value="354754000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.12724936" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.12724936" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.088125" side_tool="true" weight="0.2296588" />
@@ -481,7 +480,7 @@
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Run" order="6" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.911875" visible="true" weight="0.3396482" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" sideWeight="0.911875" visible="true" weight="0.3396482" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
@@ -767,27 +766,23 @@
     <entry file="file://$PROJECT_DIR$/img/icon_end.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/app.js">
+    <entry file="file://$PROJECT_DIR$/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/popup.js">
+    <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#h4#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="561">
+          <caret line="264" column="35" lean-forward="true" selection-start-line="264" selection-start-column="35" selection-end-line="264" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/popup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="51">
           <caret line="18" column="96" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="96" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -804,10 +799,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manifest.json">
+    <entry file="file://$PROJECT_DIR$/js/popup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="39" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+        <state relative-caret-position="153">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#h4#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

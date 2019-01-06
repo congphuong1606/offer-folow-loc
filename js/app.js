@@ -237,7 +237,7 @@ function creatNewTab(comManagerConversionIndex) {
 function updateTab() {
     try {
         chrome.tabs.update(idTabEndilo, {
-            url: 'http://elninomedia.info/manager/transaction/index',
+            url: 'http://endilomedia.com/manager/transaction/index',
             active: false
         }, function (tab1) {
             let listener = function (tabId, changeInfo, tab) {
@@ -259,7 +259,7 @@ function updateTab() {
 
 function openTabEndilo() {
     if (idTabEndilo == "") {
-        creatNewTab('http://elninomedia.info/manager/transaction/index');
+        creatNewTab('http://endilomedia.com/manager/transaction/index');
     } else {
         chrome.tabs.query({}, function (tabs) {
             if (isExistTab(tabs)) {
@@ -268,7 +268,7 @@ function openTabEndilo() {
                 idTabEndilo = "";
                 try {
                     tabs.forEach(tab => {
-                        if (tab.url === 'http://elninomedia.info/manager/transaction/index' && tab.pinned) {
+                        if (tab.url === 'http://endilomedia.com/manager/transaction/index' && tab.pinned) {
                             chrome.tabs.remove(tab.id);
                         }
                     })
