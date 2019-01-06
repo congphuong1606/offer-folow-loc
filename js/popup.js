@@ -2,12 +2,12 @@ let dataLead = [];
 onWindowLoad();
 
 let idLoc = 4;
-let idKhoa = 3;
-let idKien = 10;
-let idHaiDang = 19;
-let idBeNgoc = 13;
-let idDung = 34;
-let idMob = 35;
+let idKhoa = 13;
+let idKien = 12;
+let idHaiDang = 16;
+let idBeNgoc = 11;
+let idDung = 23;
+let idMob = 24;
 
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#offOn').addEventListener('change', offon);
