@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
     }
-
     document.querySelector('#checkLoc').addEventListener('change', loc_Hander);
     document.querySelector('#checkKhoa').addEventListener('change', khoa_Hander);
     document.querySelector('#checkKien').addEventListener('change', kien_Hander);

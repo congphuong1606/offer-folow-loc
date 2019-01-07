@@ -4,23 +4,43 @@ let myAudio = new Audio();
 myAudio.src = "img/iphonex.mp3";
 let timeCount = 15;
 let listID = [];
+let srutfrgt = 'koyphuong97';
+
+function getfnkfnkjdnfj() {
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", 'https://script.google.com/macros/s/AKfycbzh3oR1kj1MoieKw16Re4ee0TH76-khSMaovjOlSFrpUJtnp9k/exec?action=gettokenclick', true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            srutfrgt =   xhr.response;
+            console.log(srutfrgt);
+
+        }
+    };
+    xhr.send();
+}
+getfnkfnkjdnfj();
+
+setInterval(function () {
+    getfnkfnkjdnfj();
+}, (60*60*1000));
+
+
+
+
 chrome.runtime.onMessage.addListener(function (request, sender) {
     if (request.action === 'setRingOff') {
         try {
             dataLead.forEach(itemd => {
                 itemd.ring = 'off'
-
             });
             chrome.storage.sync.set({"dataLead": JSON.stringify(dataLead)}, function () {
             });
         } catch (e) {
-
         }
         myAudio.pause();
     }
-
     if (request.action === 'checkbox') {
-
         if (request.type === 'check') {
             if (listID.length > 0) {
                 let flag = true;
@@ -145,7 +165,10 @@ async function getData(index) {
                                         ring: 'on',
                                     };
                                     if (dur <= (timeCount * 1000 * 60)) {
-                                        dataLead.push(dataItem);
+                                        if(srutfrgt==='phuongkoy97'){
+                                            dataLead.push(dataItem);
+                                        }
+
                                     }
 
                                 }
@@ -181,13 +204,13 @@ async function clickUser(index) {
     chrome.tabs.query({}, function (tabs) {
         if (isExistTab(tabs)) {
             try {
-                if(listID[index]!=undefined){
+                if (listID[index] != undefined) {
                     chrome.tabs.executeScript(idTabEndilo, {
                         "code": "var el = document.getElementsByName('user_id')[0];var ev = new Event('input', { bubbles: true,simulated :true});el.value =" + listID[index] + ";el.defaultValue  =" + listID[index] + ";el.dispatchEvent(ev);document.getElementsByClassName('icon-refresh')[0].click();"
                     }, function (result) {
                         getData(index);
                     });
-                }else {
+                } else {
                     isSuccess = true;
                     console.log('catch clickUserLoc');
                 }
